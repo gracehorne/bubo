@@ -14,10 +14,40 @@ You can read more about this project on my blog:
 ## Get Started
 
 - Clone or fork the repo and run `npm install` to install the dependencies.
-- Update `feeds.json` to include categories and links to feeds you would like to see.
+- Update `config/feeds.json` to include categories and links to feeds you would like to see.
 - Run `npm run build:bubo`
 
 That's it! You should now have a static page with links to the latest content from your feeds in the `public` folder, ready to serve.
+
+## Self-hosting
+
+The simplest server-side path is Docker.
+
+Build the image:
+
+```bash
+docker build -t bubo-reader .
+```
+
+Run it:
+
+```bash
+docker run --rm -p 8080:80 bubo-reader
+```
+
+Open `http://localhost:8080`.
+
+When you change `config/feeds.json`, rebuild the image so the generated `public/index.html` stays current.
+
+## Keeping Up With Upstream
+
+This is a real clone of `georgemandis/bubo-rss`, so you can pull upstream changes normally:
+
+```bash
+git pull origin main
+```
+
+If you have local changes, commit or stash them first.
 
 <details>
   <summary>
