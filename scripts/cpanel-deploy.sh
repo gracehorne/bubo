@@ -9,6 +9,13 @@ resolve_deploy_path() {
     return
   fi
 
+  for candidate in /home/*/beep.garcehorne.com/bubo; do
+    if [[ -d "$candidate" ]]; then
+      echo "$candidate"
+      return
+    fi
+  done
+
   # Common cPanel docroot patterns for a subdomain like beep.garcehorne.com.
   if [[ -d "$HOME/public_html/beep.garcehorne.com" ]]; then
     echo "$HOME/public_html/beep.garcehorne.com/bubo"

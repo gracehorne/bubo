@@ -1,4 +1,4 @@
 ---
 deployment:
   tasks:
-    - /bin/bash scripts/cpanel-deploy.sh auto
+    - /bin/bash scripts/cpanel-deploy.sh /home/rirxtzqyms/beep.garcehorne.com/bubo
