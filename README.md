@@ -39,6 +39,35 @@ Open `http://localhost:8080`.
 
 When you change `config/feeds.json`, rebuild the image so the generated `public/index.html` stays current.
 
+## cPanel Git Deploy (No Terminal Access)
+
+If you deploy by pulling this repository from cPanel's Git UI, keep the generated file in git:
+
+- `public/index.html` should be committed to the repo.
+- `public/style.css` can be edited and committed normally.
+
+Recommended update flow:
+
+```bash
+npm install
+npm run build:bubo
+git add public/index.html config/feeds.json public/style.css
+git commit -m "Update Bubo feeds output"
+git push
+```
+
+Then use cPanel's Git pull/deploy action to refresh the live site from remote.
+
+### Optional: Automatic Generated Output via GitHub Actions
+
+This repo can automatically rebuild and commit `public/index.html` when feed/config/source files change on `main`.
+
+- Workflow file: `.github/workflows/update-bubo-output.yml`
+- Triggered by changes to `config/feeds.json`, template, source, or build config files.
+- The workflow commits only when `public/index.html` actually changes.
+
+After it runs, you only need to use cPanel Git pull/deploy to publish the new output.
+
 ## Keeping Up With Upstream
 
 This is a real clone of `georgemandis/bubo-rss`, so you can pull upstream changes normally:
