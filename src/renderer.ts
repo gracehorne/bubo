@@ -37,7 +37,8 @@ const render = ({
   return env.renderString(template, {
     data,
     errors,
-    info
+    info,
+    cacheBust: Date.now().toString()
   });
 };
 
