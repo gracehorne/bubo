@@ -51,6 +51,7 @@ const benchmark = (startTime: number) =>
  */
 const MAX_CONNECTIONS = Infinity;
 const DELAY_MS = 850;
+const REQUEST_TIMEOUT_MS = 15000;
 
 const error = chalk.bold.red;
 const success = chalk.bold.green;
@@ -108,7 +109,10 @@ const processFeed =
     async (response: Response): Promise<void> => {
       const body = await parseFeed(response);
       //skip to the next one if this didn't work out
-      if (!body) return;
+      if (!body) {
+        finishBuild();
+        return;
+      }
 
       try {
         const contents: FeedItem = (
@@ -145,16 +149,27 @@ const processFeed =
 // go through each group of feeds and process
 const processFeeds = () => {
   let idx = 0;
+  const batchSize = Number.isFinite(MAX_CONNECTIONS)
+    ? Math.max(1, MAX_CONNECTIONS)
+    : feedListLength;
 
   for (const [group, feeds] of Object.entries(feedList)) {
     contentFromAllFeeds[group] = [];
 
     for (const feed of feeds) {
       const startTime = Date.now();
+      const batchIndex = Math.floor(idx / batchSize);
+      const delay = batchIndex * DELAY_MS;
       setTimeout(() => {
         process.stdout.write(`Fetching: ${feed}...\n`);
 
-        fetch(feed)
+        const controller = new AbortController();
+        const timeoutHandle = setTimeout(
+          () => controller.abort(),
+          REQUEST_TIMEOUT_MS
+        );
+
+        fetch(feed, { signal: controller.signal })
           .then(processFeed({ group, feed, startTime }))
           .catch(err => {
             process.stdout.write(
@@ -162,8 +177,11 @@ const processFeeds = () => {
             );
             errors.push(`Error fetching ${feed} ${err.toString()}\n`);
             finishBuild();
+          })
+          .finally(() => {
+            clearTimeout(timeoutHandle);
           });
-      }, (idx % (feedListLength / MAX_CONNECTIONS)) * DELAY_MS);
+      }, delay);
       idx++;
     }
   }
