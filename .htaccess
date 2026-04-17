@@ -1,0 +1,8 @@
+DirectoryIndex public/index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Keep clean /bubo URLs while serving assets from /public.
+  RewriteRule ^style\.css$ public/style.css [L]
+</IfModule>

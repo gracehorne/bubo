@@ -58,6 +58,8 @@ git push
 
 Then use cPanel's Git pull/deploy action to refresh the live site from remote.
 
+This repo includes a root `.htaccess` so Apache can serve the generated output at `/bubo` (clean URL) while files remain in `public/`.
+
 ### Optional: Automatic Generated Output via GitHub Actions
 
 This repo can automatically rebuild and commit `public/index.html` when feed/config/source files change on `main`.
