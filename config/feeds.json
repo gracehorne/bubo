@@ -1,23 +1,65 @@
 {
-  "Developer News": [
-    "https://hacks.mozilla.org/feed/",
-    "https://web.dev/feed.xml",
-    "https://v8.dev/blog.atom",
-    "https://alistapart.com/main/feed/",
-    "https://css-tricks.com/feed/",
-    "https://dev.to/feed",
-    "https://changelog.com/feed"
+  "Ecology & Entomology": [
+    "https://www.entsoc.org/taxonomy/term/1/feed",
+    "https://butterfly-conservation.org/rss.xml",
+    "https://xerces.org/feed",
+    "https://www.globalchangebiology.com/rss/earlyview",
+    "https://ecologyforacrowdedplanet.com/feed"
   ],
-  "Blogs": [
-    "https://george.mand.is/feed.xml",
-    "https://joy.recurse.com/feed.atom"
+  "Conservation & Policy": [
+    "https://www.biologicaldiversity.org/news/feeds/press_releases.xml",
+    "https://www.carbonbrief.org/feed",
+    "https://insideclimatenews.org/feed/"
   ],
-  "My GitHub Projects": [
-    "https://github.com/georgemandis.atom",
-    "https://github.com/georgemandis/bubo-rss/releases.atom",
-    "https://github.com/georgemandis/konami-js/releases.atom",
-    "https://github.com/georgemandis/konami-js/commits/main.atom",
-    "https://github.com/javascriptforartists/cheer-me-up-and-sing-me-a-song/commits/master.atom",
-    "https://github.com/georgemandis/circuit-playground-midi-multi-tool/commits/master.atom"
+  "R & Data Science": [
+    "https://www.tidyverse.org/index.xml",
+    "https://www.r-bloggers.com/feed/",
+    "https://rweekly.org/atom.xml",
+    "https://simplystatistics.org/index.xml"
+  ],
+  "Cozy & Personal Blogs": [
+    "https://www.todayifoundout.com/index.php/feed/",
+    "https://www.themarysue.com/feed/",
+    "https://aworkinglibrary.com/feed/all/",
+    "https://hecticscrawl.com/feed",
+    "https://www.themarginalian.org/feed/"
+  ],
+  "Pop Culture & Gen Z": [
+    "https://www.vulture.com/rss/all.xml",
+    "https://pitchfork.com/rss/news/feed.iphonev2/",
+    "https://aftermath.site/feed",
+    "https://defector.com/feed",
+    "https://www.polygon.com/rss/index.xml"
+  ],
+  "Interesting Stuff": [
+    "https://kottke.org/feed/rss.xml",
+    "https://www.metafilter.com/rss/metafilter.rss",
+    "https://nautil.us/feed/",
+    "https://www.atlasobscura.com/feeds/latest",
+    "https://buttondown.com/thereader/rss"
+  ],
+  "Food & Recipes": [
+    "https://rainbowplantlife.com/feed/",
+    "https://minimalistbaker.com/feed/",
+    "https://cooking.nytimes.com/feed/v1/recipes.rss",
+    "https://www.veggieprimerblog.com/feed/",
+    "https://www.cottercrunch.com/feed/",
+    "https://www.loveandlemons.com/feed/",
+    "https://cookieandkate.com/feed/",
+    "https://frommybowl.com/feed/",
+    "https://www.pickuplimes.com/rss",
+    "https://www.parsnipsandpastries.com/feed/",
+    "https://www.myglutenfree.guide/feed/",
+    "https://www.caramelandcashews.com/feed/",
+    "https://smittenkitchen.com/feed/",
+    "https://peelwithzeal.com/feed/",
+    "https://theloopywhisk.com/feed/",
+    "https://glutenfreeonashoestring.com/feed/",
+    "https://www.beckyexcell.com/feed/",
+    "https://www.theglutenfree.blogger.com/feeds/posts/default",
+    "https://fullofplants.com/feed/",
+    "https://www.feastingathome.com/feed/",
+    "https://hummusapien.com/feed/",
+    "https://www.urbanfarmie.com/feed/"
   ]
 }
