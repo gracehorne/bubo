@@ -1,9 +1,32 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-DEPLOY_PATH="${1:-$HOME/public_html/bubo}"
+INPUT_TARGET="${1:-auto}"
+
+resolve_deploy_path() {
+  if [[ "$INPUT_TARGET" != "auto" ]]; then
+    echo "$INPUT_TARGET"
+    return
+  fi
+
+  # Common cPanel docroot patterns for a subdomain like beep.garcehorne.com.
+  if [[ -d "$HOME/public_html/beep.garcehorne.com" ]]; then
+    echo "$HOME/public_html/beep.garcehorne.com/bubo"
+    return
+  fi
+
+  if [[ -d "$HOME/public_html/beep" ]]; then
+    echo "$HOME/public_html/beep/bubo"
+    return
+  fi
+
+  echo "$HOME/public_html/bubo"
+}
+
+DEPLOY_PATH="$(resolve_deploy_path)"
 
 echo "Deploying Bubo to: $DEPLOY_PATH"
+echo "Working directory: $(pwd)"
 mkdir -p "$DEPLOY_PATH"
 
 # Build on the server if npm is available; otherwise deploy the existing public output.
